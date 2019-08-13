@@ -1,0 +1,14 @@
+{
+  "name": "SmartVan",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/js/**/*",
+    "!www/js/**/*~",
+    "!www/js/**/*#"
+  ],
+  "defaultBrowser": "chrome"
+}

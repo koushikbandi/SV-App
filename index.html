@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *;">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+
+
+
+    <!-- your app's js -->
+
+    <script>
+     // call to system-polyfills.js within system.js is not working reliably on
+     // older versions of android (i.e. 4.2.*), so it is added here instead
+     if (typeof Promise === 'undefined') {
+       document.write('<' + 'script type="text/javascript" src="' + 'jspm_packages/system-polyfills.js">' + '<' + '/script>');
+     }
+    </script>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+	<script src="build.js"></script>
+    <script>
+     System.import('js/app');
+    </script>
+    <script src="cordova.js"></script>
+
+  </head>
+  <body ng-app="smartvan" ng-controller="BrandController as brand" ng-strict-di>
+
+    <ion-nav-bar class="bar-light" align-title="left">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="right">
+        <img ng-src="img/{{brand.logo()}}" height="34px">
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-nav-view></ion-nav-view>
+
+  </body>
+</html>
